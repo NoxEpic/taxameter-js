@@ -8,6 +8,15 @@ Deres prismodel er rimelig simpel: 8,50 kr/km + 6,25 kr/min + 39 kr
 
 Implementér (dvs. færdiggør, udfyld de tomme funktioner) klassen Taxameter.js, herunder KroneTaxas prismodel.
 
+Der er ting der lavet ting ting lavet
+    beregnPris() {
+var afstandKort = this.afstand;
+        var tidKort = new Date() - this.turStartetTidspunkt;
+        var Startpris = 39;
+        
+return afstandKort * 8.50 + tidKort * 0.00108 + Startpris;
+    }
+}
 ### Opgave 2
 KroneTaxa vil også gerne bruge systemet til deres store vogne. Her er prisen: 12 kr/km + 6,67 kr/min + 69 kr.
 

@@ -16,7 +16,8 @@
  */
 class Taxameter {
 
-    constructor() {
+    constructor(prisStrategy) {
+        this.prisStrategy = prisStrategy;
         this.afstand = 0;
         this.turStartetTidspunkt = undefined;
     }
@@ -26,13 +27,21 @@ class Taxameter {
     }
 
     slutTur() {
-
+        this.turStartetTidspunkt = undefined;
+        this.afstand = 0;
     }
 
     koer(delta_afst) {
+        this.afstand += delta_afst;
     }
 
     beregnPris() {
-        return 0;
+        if (this.turStartetTidspunkt == undefined) {
+            return 0;
+        }
+
+        var tidKortMs = new Date() - this.turStartetTidspunkt;
+        var tidKortMin = tidKortMs / 1000 / 60;
+        return this.prisStrategy.calculatePrice(tidKortMin, this.afstand);
     }
 }

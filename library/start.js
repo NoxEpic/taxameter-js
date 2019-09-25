@@ -77,7 +77,7 @@ function start(taxameter) {
             if (taxameter.turStartetTidspunkt === undefined) {
                 elementer.tid.innerText = '0:00';
             } else {
-                const tidGaaet = Math.floor((new Date() - taxameter.turStartetTidspunkt) / 1000);
+                const tidGaaet = Math.floor(new Date() - taxameter.turStartetTidspunkt) / 1000;
                 const sekunder = ("00" + tidGaaet % 60).slice(-2);
                 const minutter = Math.floor(tidGaaet / 60);
                 elementer.tid.innerText = minutter + ":" + sekunder;
