@@ -45,3 +45,4 @@ class Taxameter {
         return this.prisStrategy.calculatePrice(tidKortMin, this.afstand);
     }
 }
+///
